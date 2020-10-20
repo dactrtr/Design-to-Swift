@@ -1,8 +1,15 @@
-
-import SwiftUI
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import SwiftUI
 import PlaygroundSupport
 func haptic(){
-//      UINotificationFeedbackGenerator().notificationOccurred(.success)
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
 }
 struct lekanMenu: View {
     @State var isPress =  false
@@ -60,7 +67,7 @@ struct lekanMenu: View {
             }
             .edgesIgnoringSafeArea(.all)
         }
-//          .frame(width:375,height:596)
+        //          .frame(width:375,height:596)
     }
 }
 
@@ -127,7 +134,7 @@ struct menuBar: View {
                     .mask(
                         Image(systemName: self.selected == 3 ? "message.fill" : "message")
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
-                            .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(alignment: .center)
                 )
                     .frame(width: 36, height: 36)
                     .scaleEffect(self.isPress ? 1.2:1)
@@ -148,7 +155,7 @@ struct menuBar: View {
                     .mask(
                         Image(systemName: self.selected == 4 ? "tag.fill" : "tag")
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
-                            .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(alignment: .center)
                 )
                     .frame(width: 36, height: 36)
                     .scaleEffect(self.isPress ? 1.2:1)
@@ -171,3 +178,17 @@ PlaygroundPage.current.setLiveView(
         .background(Color.white)
         .cornerRadius(32)
 )
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 9895}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
