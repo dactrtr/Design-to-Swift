@@ -8,13 +8,14 @@ Here you will find mostly, playground projects (I believe is a less complex appr
 
 ## List of Designs
 
-- 00 [Lekan Menu](https://twitter.com/lalaekan/status/1285923482195419136) 
-**Results**
+### 00 [Lekan Menu](https://twitter.com/lalaekan/status/1285923482195419136) 
+#### **Results**
 [Imgur](https://i.imgur.com/wbX9tFG.mp4)
-**Gist**
+#### **Gist**
 [Gist](https://gist.github.com/dactrtr/a5c3445728b2b0714f4b2c8798ab8ef5)
 
-- 01 [Clean Bank UI](https://dribbble.com/shots/12310592-Clean-Bank-UI) **Results**
+### 01 [Clean Bank UI](https://dribbble.com/shots/12310592-Clean-Bank-UI) 
+#### **Results**
 TBA
-**Gist**
+#### **Gist**
 TBA
