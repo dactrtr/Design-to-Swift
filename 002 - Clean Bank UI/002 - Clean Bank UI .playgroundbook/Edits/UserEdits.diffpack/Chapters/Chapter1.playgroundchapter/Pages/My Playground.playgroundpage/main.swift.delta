@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import SwiftUI
+import PlaygroundSupport
+
+struct cleanBank : View  {
+    @State var isOpen = false
+    @State var isVisible = false
+    var body : some View{
+        VStack{
+            header()
+            .offset(y:self.isVisible ? -32:0)
+            .opacity(self.isVisible ? 0:1)
+                .animation(.spring())
+            HStack{
+                Text("My cards")
+                .font(.caption)
+                .fontWeight(.semibold)
+                    .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                Spacer()
+                Image(systemName: "plus")
+                    .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                
+            }
+            .padding(.top, isOpen ? 24:0)
+            .padding(.horizontal,16)
+            .opacity(isOpen ? 1:0)
+            .animation(.spring())
+            ZStack(alignment: .top){
+                ZStack{
+                    card(isVisible: $isVisible,isOpen: $isOpen, isDark: false, logo: #imageLiteral(resourceName: "mastercard.png"), card: "Mastercard", number: "3462", amount: "$ 4.500")
+                        .rotation3DEffect(Angle(degrees:  isOpen ? -30:0), axis: (x: 10, y: 0, z: 0))
+                        .offset(y:isOpen ? -140:0)
+                    card(isVisible: $isVisible,isOpen: $isOpen, isDark: true, logo: #imageLiteral(resourceName: "mastercard.png"), card: "Mastercard Black", number: "5116", amount: "$ 200")
+                        .rotation3DEffect(Angle(degrees:  isOpen ? -30:0), axis: (x: 10, y: 0, z: 0))
+                        .offset(y:isOpen ? -70:0)
+                    card(isVisible: $isVisible,isOpen: $isOpen, isDark: false, logo: #imageLiteral(resourceName: "mastercard.png"), card: "Mastercard", number: "3462", amount: "$ 3.200")
+                        .rotation3DEffect(Angle(degrees:  isOpen ? -30:0), axis: (x: 10, y: 0, z: 0))
+                    
+                }
+                        .onTapGesture {
+                            if !self.isVisible{
+                                self.isOpen.toggle()
+                            }
+                            
+                            
+                    
+                }
+                .frame(height: isOpen ? 300:80)
+                .padding(.top, isOpen ? 64:0)
+                .offset(x: isOpen ? 88:0)
+                .animation(.spring())
+                contentCard(isOpen: $isOpen, isVisible: $isVisible)
+                
+            }
+            .offset(y:isVisible ? -152:0)
+                Spacer()
+                
+            
+        }
+        .offset(y:120)
+    }
+}
+struct contentCard : View {
+    @State var cardState = CGSize.zero
+    @Binding var isOpen : Bool
+    @Binding var isVisible : Bool
+    var body : some View {
+        
+        VStack(spacing: 16){
+            Color((#colorLiteral(red: 0.5019607843137255, green: 0.5019607843137255, blue: 0.5019607843137255, alpha: 1.0)))
+            .frame(width: 32, height: 4)
+            .cornerRadius(2)
+            .opacity( isVisible ? 0:0.3)
+            if !isVisible {
+                Group{
+                HStack(spacing: 32){
+                    Text("Actions")
+                    Text("History").opacity(0.5)
+                    Text("Finance")
+                    .opacity(0.5)
+                    Spacer()
+                }
+                .font(.system(size: 14, weight: .bold, design: .rounded))
+                .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                .padding(.horizontal, 8)
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack(spacing:16){
+                    payCard(icon:"car.fill",title:"Parking",status:"Paying",height: 116)
+                    payCard(icon:"phone.fill",title:"Phone",status:"On Hold",height: 116)
+                    payCardImage(picture: #imageLiteral(resourceName: "IMG_1205.JPG"), title: "Trip", status:"Pending")
+                }
+                .padding(.leading, 16)
+                .padding(.vertical, 16)
+                }.frame(width: isVisible ? 375:355)
+            }
+            .opacity(isOpen ? 0: 1)
+            .animation(.spring())
+            }
+            
+            
+            VStack{
+                HStack{
+                    Text("Favorites")
+                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                        .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                    Spacer()
+                }
+                .padding(.horizontal, 8)
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack(spacing: 24){
+                    favoriteItem(image: #imageLiteral(resourceName: "avatar-3.jpg"), name: "Ashley G.")
+                    favoriteItem(image: #imageLiteral(resourceName: "vodafone.png"), name: "My phone")
+                    favoriteItem(image: #imageLiteral(resourceName: "citi.jpeg"), name: "Job")
+                    favoriteItem(image: #imageLiteral(resourceName: "avatar-2.jpg"), name: "Carley R.")
+                    favoriteItem(image: #imageLiteral(resourceName: "mastercard.png"), name: "Loan")
+                    favoriteItem(image: #imageLiteral(resourceName: "avatar-4.JPG"), name: "Carley R.")
+                }
+                .padding(.horizontal,16)
+                }
+                .frame(width:355)
+            }
+            VStack{
+                HStack(spacing: 32){
+                    Text("Payments")
+                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                        .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                    Spacer()
+                }
+                
+                .padding(.horizontal, 8)
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack(spacing:16){
+                        payCard(icon:"car.fill",title:"Parking",status:"Paying",height: 80)
+                        payCard(icon:"creditcard.fill",title:"Credit",status:"Monthly",height: 80)
+                        payCard(icon:"sdcard.fill",title:"Photos",status:"Weekly",height: 80)
+                        payCard(icon:"pencil",title:"Art",status:"Daily",height: 80)
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 16)
+                    
+                    }
+                .frame(width:  355)
+                }
+            VStack{
+                HStack(spacing: 32){
+                    Text("Money transfers")
+                        .font(.system(size: 14, weight: .bold, design: .rounded))
+                        .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                    Spacer()
+                }
+                    
+                .padding(.horizontal, 8)
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack(spacing:16){
+                        payCard(icon:"arrow.up",title:"Pizza",status:"$ 400",height: 80)
+                        payCard(icon:"arrow.down",title:"Logo",status:"$ 200",height: 80)
+                        payCard(icon:"arrow.up",title:"Subs",status:"$ 128",height: 80)
+                        payCard(icon:"arrow.up",title:"Art",status:"Daily",height: 80)
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 16)
+                    
+                }
+                .frame(width:  355)
+            }
+            
+        }
+        .padding(.vertical,8)
+        .frame(width:355)
+        .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)).opacity( isVisible ? 0:1))
+        .cornerRadius(8)
+        .shadow(color: Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)).opacity(0.2), radius: 16, x: 0, y: 0)
+        .offset(y: isOpen ? 320 :  cardState.height+88)
+        .animation(.spring())
+    .gesture(
+        DragGesture().onChanged { value in
+            if !self.isOpen{
+                self.cardState = value.translation
+                if self.cardState.height &lt; -56{
+                    self.cardState.height = -32
+                }
+                if self.cardState.height &gt; 64 {
+                    self.cardState.height = 64
+                }
+            }
+            if self.isVisible{
+                if self.cardState.height &gt; 16 {
+                    self.cardState.height = 0
+                }
+            }
+        }
+    .onEnded { value in
+        if self.cardState.height &lt; 0{
+            self.cardState.height=0
+            self.isVisible.toggle()
+        }
+        if (self.cardState.height &gt; 0 &amp;&amp; !self.isVisible){
+            self.isOpen.toggle()
+        }
+        if self.isOpen{
+            self.cardState.height = 0
+        }
+        }
+        )
+        
+    }
+}
+struct favoriteItem : View {
+    var image : UIImage
+    var name : String
+    var body : some View {
+        VStack{
+            Image(uiImage: image)
+                .resizable()
+            .aspectRatio(contentMode: .fill)
+                .frame(width: 48,height:48)
+                .clipShape(Circle())
+            Text(name)
+                .font(.system(size: 10, weight: .bold, design: .rounded))
+                .foregroundColor(Color(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)))
+            .padding(.top, 8)
+        }
+    }
+}
+struct payCard : View{
+    var icon : String
+    var title: String
+    var status : String
+    var height : Int
+    var body : some View{
+        ZStack{
+            HStack{
+                VStack(alignment: .leading){
+                    Spacer()
+                    Image(systemName:icon)
+                        .foregroundColor(Color(#colorLiteral(red: 0.5019607843137255, green: 0.5019607843137255, blue: 0.5019607843137255, alpha: 1.0)))
+                        .frame(width: 32, height:32)
+                        .background(Color(#colorLiteral(red: 0.803921568627451, green: 0.803921568627451, blue: 0.803921568627451, alpha: 1.0)).opacity(0.5))
+                        .cornerRadius(48)
+                    Group{
+                        Text(title)
+                            .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                        Text(status)
+                            .foregroundColor(Color(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)))
+                    }
+                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                }
+                Spacer()
+            }
+        }
+        .frame(width: 88,height: CGFloat(height))
+        .padding(8)
+        .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .shadow(color: Color(#colorLiteral(red: 0.803921568627451, green: 0.803921568627451, blue: 0.803921568627451, alpha: 1.0)).opacity(0.5), radius: 5, x: 0, y: 0)
+    }
+}
+struct payCardImage : View{
+    var picture : UIImage
+    var title: String
+    var status : String
+    var body : some View{
+        ZStack{
+            HStack{
+                VStack(alignment: .leading){
+                    Spacer()
+                    Group{
+                        Text(title)
+                            .foregroundColor(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                        Text(status)
+                            .foregroundColor(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+                    }
+                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                .shadow(color: Color(#colorLiteral(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)).opacity(0.6), radius: 4, x: 0, y: 4)
+                }
+                Spacer()
+            }
+        }
+        .frame(width: 88,height: 116)
+        .padding(8)
+        .background(Image(uiImage: picture).resizable().aspectRatio(contentMode: .fill))
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .shadow(color: Color(#colorLiteral(red: 0.803921568627451, green: 0.803921568627451, blue: 0.803921568627451, alpha: 1.0)).opacity(0.5), radius: 5, x: 0, y: 0)
+    }
+}
+
+struct card : View{
+    @Binding var isVisible : Bool 
+    @Binding var isOpen : Bool
+    var isDark : Bool
+    var logo : UIImage
+    var card : String
+    var number : String
+    var amount : String
+    var body : some View {
+        ZStack{
+            VStack(alignment:.leading){
+                if !isVisible {
+                HStack{
+                    Text(card)
+                        .font(.caption)
+                        .bold()
+                        .foregroundColor(isDark ? Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)):Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                    Spacer()
+                }
+            }
+                HStack{
+                    Image(uiImage: logo)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 48)
+                    Text(number)
+                        .font(.system(size: 12, weight:.bold, design: .rounded))
+                        .foregroundColor(isDark ? Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)):Color(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)))
+                    Spacer()
+                    Text(amount)
+                        .foregroundColor(isDark ? Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)):Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                        .font(.system(size:isVisible ? 16:24, weight: .bold, design: .rounded)).offset(x: isOpen ? -64: 0)
+                    
+                }
+            .padding(.vertical,isVisible ? 0:16)
+                
+            }
+            .padding(.vertical, 16)
+            .padding(.horizontal,16)
+        }
+        .background(isDark ? Color(red:20/255,green:20/255,blue:20/255):Color(red:248/255,green:247/255,blue:245/255))
+    
+        .cornerRadius(8)
+        .padding(.horizontal,16)
+        .shadow(color: Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)).opacity(isOpen ? 0.2:0), radius: 8, x: 0, y: isOpen ? -4:0)
+        .padding(.top, isOpen ? 16:24)
+    }
+    
+}
+
+struct header : View{
+    var body : some View {
+        HStack(spacing: 16){
+            Image(uiImage:#imageLiteral(resourceName: "avatar.jpg"))
+            .resizable()
+                .clipShape(Circle())
+                .frame(width:32,height:32)
+            
+            HStack(alignment:.center){
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color(red:200.0/255,green:212.0/255,blue:218.0/2))
+                    .offset(x:16)
+                Spacer()
+            }
+            .frame(maxWidth:250, maxHeight:32)
+            .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+            .clipShape(RoundedRectangle(cornerRadius:16, style: .circular))
+            
+            ZStack{
+                Image(systemName: "bell.fill")
+                .font(.system(size:20))
+                    .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                ZStack{
+                    Color(red:189/255,green:15/255,blue:16/255)
+                        .frame(width:16, height: 16)
+                        .clipShape(Circle())
+                    Text("3")
+                        .font(.system(size:10))
+                        .bold()
+                }
+            .frame(width:32,height: 32)
+                .offset(x:8,y:-8)
+            }
+
+        }
+        
+        
+    }
+}
+
+PlaygroundPage.current.setLiveView(
+    cleanBank()
+        .frame(width:375,height:600)
+        .background(Color(red:224.0/255,green:229.0/255,blue:235.0/255))
+        .cornerRadius(32)
+    // this is my fake iPhone bezels
+)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 16618}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>

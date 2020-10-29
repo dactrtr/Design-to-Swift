@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import SwiftUI
+
+public struct card : View{
+//      @Binding var isOpen : Bool
+    var isOpen : Bool
+    public init(_ isOpen: Bool){
+        self.isOpen = isOpen
+    }
+    public var body : some View {
+        ZStack{
+            VStack(alignment:.leading){
+                HStack{
+                    Text("Mastercard")
+                        .font(.caption)
+                        .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                    Spacer()
+                }
+                HStack{
+                    Image(uiImage: #imageLiteral(resourceName: "logo-mastercard.png"))
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 48)
+                    Text("3487")
+                        .font(.system(size: 12, weight: .semibold, design: .rounded))
+                        .foregroundColor(Color(#colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)))
+                    Spacer()
+                    Text("$ 3.200")
+                        .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                        .font(.system(size:14, weight: .bold, design: .rounded))
+                    
+                }
+                
+            }
+            .padding(.vertical, 16)
+            .padding(.horizontal,16)
+        }
+        .background(Color(red:248/255,green:247/255,blue:245/255))
+        .cornerRadius(6)
+        .padding(.horizontal,16)
+        .padding(.top, isOpen ? 16:32)
+            //      .frame(width: 360, height: 220)
+            .rotation3DEffect(Angle(degrees: isOpen ? -20:0), axis: (x: 10, y: 0, z: 0))
+            .animation(.spring())
+    }
+    
+}
+
+public struct header : View {
+    public init(){}
+    public var body : some View {
+        HStack(spacing: 16){
+            Image(uiImage:#imageLiteral(resourceName: "avatar.jpg"))
+                .resizable()
+                .clipShape(Circle())
+                .frame(width:32,height:32)
+            
+            HStack(alignment:.center){
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(Color(red:200.0/255,green:212.0/255,blue:218.0/2))
+                    .offset(x:16)
+                Spacer()
+            }
+            .frame(maxWidth:250, maxHeight:32)
+            .background(Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)))
+            .clipShape(RoundedRectangle(cornerRadius:16, style: .circular))
+            
+            ZStack{
+                Image(systemName: "bell.fill")
+                    .font(.system(size:20))
+                    .foregroundColor(Color(#colorLiteral(red: 0.2549019607843137, green: 0.27450980392156865, blue: 0.30196078431372547, alpha: 1.0)))
+                ZStack{
+                    Color(red:189/255,green:15/255,blue:16/255)
+                        .frame(width:16, height: 16)
+                        .clipShape(Circle())
+                    Text("3")
+                        .font(.system(size:10))
+                        .bold()
+                }
+                .frame(width:32,height: 32)
+                .offset(x:8,y:-8)
+            }
+            
+        }
+        
+        
+    }
+}
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 3345}</string>
+			<key>OriginalContent</key>
+			<string>// Code inside modules can be shared between pages and other source files.
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 75}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>UserModules/UserModule.playgroundmodule/Sources/SharedCode.swift</string>
+</dict>
+</plist>
