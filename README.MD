@@ -8,13 +8,26 @@ Here you will find mostly, playground projects (I believe is a less complex appr
 
 ## List of Designs
 
-|**Title**|**Results**| **Gist**|
-|--|--|--|
-| 01 [Lekan Menu](https://twitter.com/lalaekan/status/1285923482195419136)  | [Imgur](https://i.imgur.com/wbX9tFG.mp4) | [Gist](https://gist.github.com/dactrtr/a5c3445728b2b0714f4b2c8798ab8ef5)|
-| 02 [Clean Bank UI](https://dribbble.com/shots/12310592-Clean-Bank-UI)|[Imgur](https://i.imgur.com/wdqUqLA.mp4) | [Gist](https://gist.github.com/dactrtr/4083dbf5d607e0c606197bc59f60521f)
-| 03 [Team Management](https://dribbble.com/shots/13623650-Team-Management-App-Interaction)| TBA | TBA |
-| 04 [Unity Gaming II](https://dribbble.com/shots/14422768-Unity-Gaming-II)| TBA | TBA |
-| 05 [E-magazin app](https://dribbble.com/shots/14063230-E-magazine-App)| TBA | TBA |
-| 06 [Crypto](https://dribbble.com/shots/4605613-Crypto)| TBA | TBA |
-| 07 [Finance App](https://dribbble.com/shots/10074039-Finance-App-Interactions)| TBA | TBA |
-| 08 [Drifting Bottle](https://dribbble.com/shots/7189839-Drifting-bottle)| TBA | TBA |
+
+### Lekan Menu
+
+![img](https://i.imgur.com/79mPMdX.png)
+
+Original: [Lekan Menu](https://twitter.com/lalaekan/status/1285923482195419136) 
+
+Result: [Imgur](https://i.imgur.com/wbX9tFG.mp4) 
+
+### Clean Bank UI
+
+![img](https://i.imgur.com/8HsVAKO.png)
+
+Original: [Clean Bank UI](https://dribbble.com/shots/12310592-Clean-Bank-UI)
+
+Result: [Imgur](https://i.imgur.com/wdqUqLA.mp4)
+
+### Team Management
+
+![img](https://i.imgur.com/OwZr37O.png)
+
+Original: [Team Management](https://dribbble.com/shots/13623650-Team-Management-App-Interaction)
+
