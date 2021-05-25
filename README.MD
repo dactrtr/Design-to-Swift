@@ -4,7 +4,7 @@ This is a group of little **frontend** experiments I'm doing to improve and prac
 
 ## What is in this repo
 
-Here you will find mostly, playground projects (I believe is a less complex approach rather than xcode) and a couple of xcode projects, the playground projects comes bundled with the assets, I also leave a link to the a gist of each project, if it's a small enough and isn't a project with a lot of swift files (I'll do this sometimes)
+Here you will ~~find mostly, playground projects (I believe is a less complex approach rather than xcode) and a couple of~~ xcode projects(its way faster to work in xcode and you have access to the latest versions of SwiftUI, besides the errors are better handled in Xcode), the playground projects comes bundled with the assets, I also leave a link to the a gist of each project, if it's a small enough and isn't a project with a lot of swift files (I'll do this sometimes)
 
 ## List of Designs
 
