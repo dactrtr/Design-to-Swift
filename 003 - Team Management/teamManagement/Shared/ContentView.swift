@@ -32,7 +32,7 @@ struct ContentView: View {
                                 .offset(y: studios[index].isOpen ? -geo.frame(in: .global).minY : 0)
 
                         }
-                        .frame(maxHeight: studios[index].isOpen ? .infinity : 180)
+                        .frame(maxHeight: studios[index].isOpen ? .infinity : CGFloat(180))
                         .zIndex( studios[index].isOpen ? 1 : 0)
                     }
                 }
@@ -156,8 +156,8 @@ struct circleHeader: View {
                         .scaleEffect(isOpen ? 2.5: 2)
                         .frame(alignment: isOpen ? .center:.top)
                 )
-                .frame(width: isOpen ? 180:80, height: isOpen ? 50 : 80)
-                .offset(x: isOpen ? 140: 20, y: isOpen ? 30:-20)
+                .frame(width: isOpen ? CGFloat(180) : CGFloat(80), height: isOpen ? CGFloat(50) : CGFloat(80))
+                .offset(x: isOpen ? 140 : 20, y: isOpen ? 30 : -20)
                 .blendMode(.difference)
             Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
                 .mask(
@@ -180,11 +180,11 @@ struct circleHeader: View {
                         .opacity(isOpen ? 0.9 : 0)
                     Spacer()
                 }
-                .padding(.horizontal,isOpen ? 32:0)
-                .padding(.top, isOpen ? 48:0)
+                .padding(.horizontal,isOpen ? CGFloat(32) : 0)
+                .padding(.top, isOpen ? CGFloat(48) : 0)
             }
         }
-        .frame(maxWidth:isOpen ? .infinity: 120, maxHeight: isOpen ? .infinity :120)
+        .frame(maxWidth:isOpen ? .infinity : CGFloat(120), maxHeight: isOpen ? .infinity : CGFloat(120))
         .clipShape(RoundedRectangle(cornerRadius:isOpen ? 16:64, style: isOpen ? .continuous: .circular))
     }
 }
