@@ -1,5 +1,7 @@
 # Design to SwiftUI
 
+## I just moved the other projects to their own repos, the ones left here are the ones made in playgrounds, that somehow broke in a update from my laptop, maybe (not) I'll re do this views
+
 This is a group of little **frontend** experiments I'm doing to improve and practice SwiftUI, saw something cool on the internet, BOOM! then try to code it. 
 
 ## What is in this repo
@@ -25,9 +27,4 @@ Original: [Clean Bank UI](https://dribbble.com/shots/12310592-Clean-Bank-UI)
 
 Result: [Imgur](https://i.imgur.com/wdqUqLA.mp4)
 
-### Team Management
-
-![img](https://i.imgur.com/OwZr37O.png)
-
-Original: [Team Management](https://dribbble.com/shots/13623650-Team-Management-App-Interaction)
 
